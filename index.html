@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIxeLinK - Soluciones Digitales</title>
+    <!-- Estilos inspirados en la paleta de colores del logotipo -->
+    <style>
+        :root {
+            --brand-dark: #111d28;
+            --brand-blue: #0072ff;
+            --brand-cyan: #00d2ff;
+            --brand-magenta: #ff2a85;
+            --brand-orange: #ff9100;
+            --text-color: #333333;
+            --bg-color: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Header / Hero Section con los colores corporativos */
+        header {
+            background: linear-gradient(135deg, #0d1b2a, #1b263b, #203a43);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid;
+            border-image: linear-gradient(to right, var(--brand-cyan), var(--brand-magenta), var(--brand-orange)) 1;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo-img {
+            max-width: 180px;
+            height: auto;
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #e2e8f0;
+            max-width: 700px;
+            margin: 15px auto 30px auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--brand-magenta), #ff5e62);
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255, 42, 133, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 42, 133, 0.6);
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1b263b;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+        }
+
+        /* Tarjetas de Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-cyan { border-top: 5px solid var(--brand-cyan); }
+        .card-magenta { border-top: 5px solid var(--brand-magenta); }
+        .card-orange { border-top: 5px solid var(--brand-orange); }
+
+        .service-card h3 {
+            color: #1b263b;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .service-card p {
+            color: #64748b;
+            font-size: 1em;
+        }
+
+        /* Tabla Comparativa */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            margin-bottom: 60px;
+        }
+
+        th, td {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        th {
+            background-color: #1b263b;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Sección de Contacto Interactiva */
+        .contact-section {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #475569;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #1b263b;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1em;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .whatsapp-btn {
+            display: block;
+            width: 100%;
+            background-color: #25d366;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #20ba5a;
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: #0d1b2a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado con el logotipo integrado -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="PIxeLinK - Soluciones Digitales" class="logo-img">
+        </div>
+        <p>Innovación, conectividad y seguridad para impulsar tu negocio y hogar</p>
+        <a href="#contacto" class="cta-button">Cotizar un Servicio</a>
+    </header>
+
+    <div class="container">
+        
+        <!-- Sección de Servicios -->
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card card-cyan">
+                <h3>Páginas WEB</h3>
+                <p>Diseño de sitios web modernos, responsivos y optimizados para pequeñas empresas que buscan destacar y atraer más clientes en internet.</p>
+            </div>
+            
+            <div class="service-card card-magenta">
+                <h3>Invitaciones Digitales</h3>
+                <p>Sorprende a tus invitados con invitaciones interactivas, elegantes y personalizadas para bodas, XV años, cumpleaños y eventos corporativos.</p>
+            </div>
+            
+            <div class="service-card card-orange">
+                <h3>CCTV y Control de Acceso</h3>
+                <p>Venta e instalación de sistemas profesionales de videovigilancia y control de acceso para proteger tu hogar y negocio las 24 horas.</p>
+            </div>
+        </div>
+
+        <!-- Tabla Comparativa -->
+        <h2>Resumen de Soluciones</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Ideal Para</th>
+                        <th>Beneficio Principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Páginas WEB</strong></td>
+                        <td>Pequeñas empresas y emprendedores</td>
+                        <td>Mayor visibilidad, prestigio y captación de clientes digitales[cite: 2].</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Invitaciones Digitales</strong></td>
+                        <td>Eventos sociales y corporativos</td>
+                        <td>Facilidad de envío, confirmación de asistencia y diseño único[cite: 2].</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CCTV y Control de Acceso</strong></td>
+                        <td>Hogares y negocios</td>
+                        <td>Tranquilidad, monitoreo remoto y seguridad avanzada[cite: 2].</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sección de Contacto Interactiva -->
+        <div id="contacto" class="contact-section">
+            <h2>¿Listo para comenzar tu proyecto?</h2>
+            <p>Selecciona el servicio de tu interés y contáctanos directamente por WhatsApp:</p>
+            
+            <div class="form-group">
+                <label for="tipoServicio">¿Qué servicio te interesa?</label>
+                <select id="tipoServicio">
+                    <option value="una Página WEB para mi negocio">Páginas WEB</option>
+                    <option value="Invitaciones Digitales para mi evento">Invitaciones Digitales</option>
+                    <option value="un sistema de CCTV y Control de Acceso">CCTV y Control de Acceso</option>
+                    <option value="más información general sobre sus servicios">Información General</option>
+                </select>
+            </div>
+
+            <button onclick="enviarWhatsApp()" class="whatsapp-btn">💬 Enviar mensaje por WhatsApp</button>
+        </div>
+
+    </div>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2026 PIxeLinK - Soluciones Digitales. Todos los derechos reservados[cite: 2].</p>
+    </footer>
+
+    <!-- Script para generar el enlace dinámico de WhatsApp -->
+    <script>
+        function enviarWhatsApp() {
+            // REEMPLAZA EL NÚMERO DE ABAJO por tu número de WhatsApp con código de país (Ej: 521 para México seguido de tus 10 dígitos)
+            const telefono = "521XXXXXXXXXX"; 
+            
+            const select = document.getElementById("tipoServicio");
+            const servicioSeleccionado = select.value;
+            
+            const mensaje = `Hola PIxeLinK, me interesa cotizar ${servicioSeleccionado}. ¿Me podrían brindar más información?`;
+            
+            const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
